@@ -1,0 +1,632 @@
+[
+    {
+        "id": "2f37e2f72fd81a25",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1",
+        "type": "mqtt in",
+        "z": "2f37e2f72fd81a25",
+        "name": "MQTT Input Temp",
+        "topic": "temperatureTSN",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 410,
+        "y": 60,
+        "wires": [
+            [
+                "4391e6dcfc557809"
+            ]
+        ]
+    },
+    {
+        "id": "10",
+        "type": "mqtt out",
+        "z": "2f37e2f72fd81a25",
+        "name": "Relay 1 MQTT",
+        "topic": "relay1TSN",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2",
+        "x": 820,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "12",
+        "type": "mqtt out",
+        "z": "2f37e2f72fd81a25",
+        "name": "Relay 2 MQTT",
+        "topic": "relay2TSN",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2",
+        "x": 820,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "4391e6dcfc557809",
+        "type": "ui-gauge",
+        "z": "2f37e2f72fd81a25",
+        "name": "Greenhouse Temperature",
+        "group": "7e8b9ceecc2fdb2c",
+        "order": 1,
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Greenhouse Temp",
+        "units": "Celcius",
+        "icon": "thermometer",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c"
+            },
+            {
+                "from": "20",
+                "color": "#ffc800"
+            },
+            {
+                "from": "40",
+                "color": "#ea5353"
+            }
+        ],
+        "min": 0,
+        "max": "60",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 850,
+        "y": 160,
+        "wires": [],
+        "inputLabels": [
+            "{{msg.payload.temperature}}"
+        ],
+        "info": "{{msg.payload.temperature}}"
+    },
+    {
+        "id": "9d2e3f0a9ca160ec",
+        "type": "ui-gauge",
+        "z": "2f37e2f72fd81a25",
+        "name": "Greenhouse Humidity",
+        "group": "7e8b9ceecc2fdb2c",
+        "order": 2,
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Greenhouse Humidity",
+        "units": "%",
+        "icon": "water",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c"
+            },
+            {
+                "from": "33",
+                "color": "#ffc800"
+            },
+            {
+                "from": "66",
+                "color": "#ea5353"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 840,
+        "y": 220,
+        "wires": [],
+        "inputLabels": [
+            "{{msg.payload.humidity}}"
+        ],
+        "info": "{{msg.payload.humidity}}"
+    },
+    {
+        "id": "01631a46ccdad100",
+        "type": "ui-gauge",
+        "z": "2f37e2f72fd81a25",
+        "name": "Outside Temp",
+        "group": "81f3bb8b7e1747d0",
+        "order": 1,
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Outside Temperature",
+        "units": "Celcius",
+        "icon": "thermometer",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c"
+            },
+            {
+                "from": "20",
+                "color": "#ffc800"
+            },
+            {
+                "from": "40",
+                "color": "#ea5353"
+            }
+        ],
+        "min": 0,
+        "max": "60",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 820,
+        "y": 280,
+        "wires": [],
+        "inputLabels": [
+            "{{msg.payload.outsideTemperature}}"
+        ],
+        "info": "{{msg.payload.outsideTemperature}}"
+    },
+    {
+        "id": "36d806bf8b0b332f",
+        "type": "ui-gauge",
+        "z": "2f37e2f72fd81a25",
+        "name": "Wind Speed",
+        "group": "81f3bb8b7e1747d0",
+        "order": 2,
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Wind Speed",
+        "units": "km/h",
+        "icon": "wind-turbine",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c"
+            },
+            {
+                "from": "8",
+                "color": "#ffc800"
+            },
+            {
+                "from": "16",
+                "color": "#ea5353"
+            }
+        ],
+        "min": 0,
+        "max": "25",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 810,
+        "y": 340,
+        "wires": [],
+        "inputLabels": [
+            "{{msg.payload.windSpeed}}"
+        ],
+        "info": "{{msg.payload.windSpeed}}"
+    },
+    {
+        "id": "ad5797c8ba1eaf79",
+        "type": "ui-switch",
+        "z": "2f37e2f72fd81a25",
+        "name": "Relay 1 Control",
+        "label": "Watering System",
+        "group": "8bc17823f5bbb699",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 600,
+        "y": 420,
+        "wires": [
+            [
+                "10"
+            ]
+        ]
+    },
+    {
+        "id": "b61071e0b38991c9",
+        "type": "ui-switch",
+        "z": "2f37e2f72fd81a25",
+        "name": "Relay 2 Control",
+        "label": "Cooling System",
+        "group": "8bc17823f5bbb699",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 600,
+        "y": 500,
+        "wires": [
+            [
+                "12"
+            ]
+        ]
+    },
+    {
+        "id": "f824a71684ce3fbd",
+        "type": "mqtt in",
+        "z": "2f37e2f72fd81a25",
+        "name": "MQTT Input Hum",
+        "topic": "humidityTSN",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "9d2e3f0a9ca160ec"
+            ]
+        ]
+    },
+    {
+        "id": "8752633721df321f",
+        "type": "mqtt in",
+        "z": "2f37e2f72fd81a25",
+        "name": "MQTT Input API Temp",
+        "topic": "apiTemperatureTSN",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 360,
+        "y": 200,
+        "wires": [
+            [
+                "01631a46ccdad100"
+            ]
+        ]
+    },
+    {
+        "id": "e3aa1c9c23d44c60",
+        "type": "mqtt in",
+        "z": "2f37e2f72fd81a25",
+        "name": "MQTT Input WS",
+        "topic": "windSpeedTSN",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 380,
+        "y": 260,
+        "wires": [
+            [
+                "36d806bf8b0b332f"
+            ]
+        ]
+    },
+    {
+        "id": "962735087f9fb72d",
+        "type": "mqtt in",
+        "z": "2f37e2f72fd81a25",
+        "name": "MQTT Input Soil",
+        "topic": "soilMoistureTSN",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 380,
+        "y": 320,
+        "wires": [
+            [
+                "1a291c921ba87380"
+            ]
+        ]
+    },
+    {
+        "id": "1a291c921ba87380",
+        "type": "ui-chart",
+        "z": "2f37e2f72fd81a25",
+        "group": "ff0d22264fb319dd",
+        "name": "Soil Moisture Over Time",
+        "label": "Soil Moisture chart",
+        "order": 1,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "Moisture",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "HH:mm",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "Soil Moisture",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 8,
+        "className": "",
+        "interpolation": "linear",
+        "x": 850,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "025c9505e62e0cec",
+        "type": "mqtt in",
+        "z": "2f37e2f72fd81a25",
+        "name": "MQTT R1",
+        "topic": "relay1TSN",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 400,
+        "y": 380,
+        "wires": [
+            [
+                "ad5797c8ba1eaf79"
+            ]
+        ]
+    },
+    {
+        "id": "7ab45b9d8d5d11c0",
+        "type": "mqtt in",
+        "z": "2f37e2f72fd81a25",
+        "name": "MQTT R1",
+        "topic": "relay2TSN",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 400,
+        "y": 440,
+        "wires": [
+            [
+                "b61071e0b38991c9"
+            ]
+        ]
+    },
+    {
+        "id": "2",
+        "type": "mqtt-broker",
+        "name": "HiveMQ",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "7e8b9ceecc2fdb2c",
+        "type": "ui-group",
+        "name": "DHT",
+        "page": "71f54f9d4d6eaf9c",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "81f3bb8b7e1747d0",
+        "type": "ui-group",
+        "name": "API Data",
+        "page": "71f54f9d4d6eaf9c",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "8bc17823f5bbb699",
+        "type": "ui-group",
+        "name": "Relay Controls",
+        "page": "71f54f9d4d6eaf9c",
+        "width": 6,
+        "height": 1,
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "ff0d22264fb319dd",
+        "type": "ui-group",
+        "name": "Soil Moisture",
+        "page": "71f54f9d4d6eaf9c",
+        "width": 6,
+        "height": 1,
+        "order": 4,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "71f54f9d4d6eaf9c",
+        "type": "ui-page",
+        "name": "Greenhouse Monitoring",
+        "ui": "ef6dcb12b0ad803f",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "default",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "ef6dcb12b0ad803f",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true
+    }
+]
